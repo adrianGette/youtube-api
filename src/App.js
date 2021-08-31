@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid } from '@material-ui/core';
 
-import { SearchBar, VideoDetail } from './components';
+import { SearchBar, VideoDetail, VideoList } from './components';
 
 import youtube from './api/youtube';
 
@@ -11,6 +11,14 @@ class App extends React.Component {
     state = {
         videos: [],
         selectedVideo: null,
+    }
+
+    componentDidMount() {
+        this.handleSubmit('Tendencias música');
+    }
+
+    onVideoSelect = (video) => {
+        this.setState({ selectedVideo: video });
     }
 
 
@@ -29,7 +37,7 @@ class App extends React.Component {
 
     render() {
 
-        const { selectedVideo } = this.state;
+        const { selectedVideo, videos } = this.state;
 
         return (
             <Grid justify="center" container spacing={10}>
@@ -42,7 +50,7 @@ class App extends React.Component {
                             <VideoDetail video={selectedVideo} />
                         </Grid>
                         <Grid item xs={4}>
-                            {/* VIDEO LIST */}
+                            <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
                         </Grid>
                     </Grid>
                 </Grid>

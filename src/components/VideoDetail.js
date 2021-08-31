@@ -20,7 +20,7 @@ const VideoDetail = ({ video }) => {
                 />
             </Paper>
             <Paper elevation={6} style={{ padding: '15px' }}>
-                <Typography variant="h4">{video.snippet.title} - {video.snippet.channelTitle}</Typography>
+                <Typography variant="h5">{video.snippet.title} - {video.snippet.channelTitle}</Typography>
                 <Typography variant="subtitle1">{video.snippet.channelTitle}</Typography>
                 <Typography variant="subtitle2">{video.snippet.description}</Typography>
             </Paper>
